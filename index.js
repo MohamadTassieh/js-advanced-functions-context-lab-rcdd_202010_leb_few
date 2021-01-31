@@ -13,7 +13,7 @@ function createEmployeeRecord(array){
 function createEmployeeRecords(array){
 let arr=array.map(element=>createEmployeeRecord(element));
 return arr;
-  }  
+  }
 function createTimeInEvent(time){
   let a=time.split(" ");
   let object={};
@@ -48,7 +48,7 @@ function hoursWorkedOnDate (time){
   function wagesEarnedOnDate(time){
   return parseInt(this.payPerHour)*hoursWorkedOnDate.call(this,time);
   }
-  
+
 let allWagesFor = function () {
     let eligibleDates = this.timeInEvents.map(function (e) {
         return e.date;
@@ -59,7 +59,7 @@ let allWagesFor = function () {
     }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
     return payable;
-}  
+}
 function calculatePayroll (array){
  let grandTotalOwed = array.reduce((m, e) => m + allWagesFor.call(e), 0);
  return grandTotalOwed;
