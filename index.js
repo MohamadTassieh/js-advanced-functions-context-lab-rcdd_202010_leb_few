@@ -1,4 +1,5 @@
 /* Your Code Here */
+
 function createEmployeeRecord(array){
  let list={
     firstName:array[0],
@@ -10,10 +11,12 @@ function createEmployeeRecord(array){
   }
   return list;
 }
+      
 function createEmployeeRecords(array){
 let arr=array.map(element=>createEmployeeRecord(element));
 return arr;
   }
+  
 function createTimeInEvent(time){
   let a=time.split(" ");
   let object={};
@@ -23,6 +26,7 @@ function createTimeInEvent(time){
   this.timeInEvents.push(object);
   return this;
 }
+
 function createTimeOutEvent(time){
   let a=time.split(" ");
     let object={};
@@ -32,6 +36,7 @@ function createTimeOutEvent(time){
   this.timeOutEvents.push(object);
   return this;
 }
+
 function hoursWorkedOnDate (time){
     let inDate = this.timeInEvents.find(function(i){
         return i.date === time;
@@ -41,28 +46,16 @@ function hoursWorkedOnDate (time){
     })
     return (outDate.hour - inDate.hour) / 100;
 }
+
   function findEmployeeByFirstName(array,name){
   let result = array.find((element) => element.firstName===name);
   return result?result:undefined;
   }
+  
   function wagesEarnedOnDate(time){
   return parseInt(this.payPerHour)*hoursWorkedOnDate.call(this,time);
   }
-
-}
-function calculatePayroll (array){
- let grandTotalOwed = array.reduce((m, e) => m + allWagesFor.call(e), 0);
- return grandTotalOwed;
-}
-/*
- We're giving you this function. Take a look at it, you might see some usage
- that's new and different. That's because we're avoiding a well-known, but
- sneaky bug that we'll cover in the next few lessons!
-
- As a result, the lessons for this function will pass *and* it will be available
- for you to use if you need it!
- */
-
+  
 let allWagesFor = function () {
     let eligibleDates = this.timeInEvents.map(function (e) {
         return e.date
@@ -74,3 +67,19 @@ let allWagesFor = function () {
 
     return payable
 }
+  
+function calculatePayroll (array){
+ let grandTotalOwed = array.reduce((m, e) => m + allWagesFor.call(e), 0);
+ return grandTotalOwed;
+}
+
+
+/*
+ We're giving you this function. Take a look at it, you might see some usage
+ that's new and different. That's because we're avoiding a well-known, but
+ sneaky bug that we'll cover in the next few lessons!
+ As a result, the lessons for this function will pass *and* it will be available
+ for you to use if you need it!
+ */
+ 
+ 
