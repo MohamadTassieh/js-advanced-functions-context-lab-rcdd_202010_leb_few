@@ -11,12 +11,12 @@ function createEmployeeRecord(array){
   }
   return list;
 }
-      
+
 function createEmployeeRecords(array){
 let arr=array.map(element=>createEmployeeRecord(element));
 return arr;
   }
-  
+
 function createTimeInEvent(time){
   let a=time.split(" ");
   let object={};
@@ -51,11 +51,11 @@ function hoursWorkedOnDate (time){
   let result = array.find((element) => element.firstName===name);
   return result?result:undefined;
   }
-  
+
   function wagesEarnedOnDate(time){
   return parseInt(this.payPerHour)*hoursWorkedOnDate.call(this,time);
   }
-  
+
 let allWagesFor = function () {
     let eligibleDates = this.timeInEvents.map(function (e) {
         return e.date
@@ -67,7 +67,7 @@ let allWagesFor = function () {
 
     return payable
 }
-  
+
 function calculatePayroll (array){
  let grandTotalOwed = array.reduce((m, e) => m + allWagesFor.call(e), 0);
  return grandTotalOwed;
@@ -81,5 +81,3 @@ function calculatePayroll (array){
  As a result, the lessons for this function will pass *and* it will be available
  for you to use if you need it!
  */
- 
- 
